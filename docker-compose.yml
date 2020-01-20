@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  backend:
+    build: ./backend
+    ports: 
+      - '8080'
+  frontend:
+    build: ./frontend
+    ports: 
+      - '80'
+  load:
+    build: ./load
+    ports: 
+      - '80:80'
+    links: 
+      - backend
+      - frontend
